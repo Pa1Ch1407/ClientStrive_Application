@@ -1,0 +1,39 @@
+Component Creation:
+
+ITAM 
+1. Home
+2. Solution
+	2.1 Single Create/Update
+		2.1.1 Add/Edit solution
+	2.2 Multiple Create
+	2.3 Multiple update
+3. License Agreement
+	3.1 Singler Create/Update
+	
+	3.2 Multiple Create
+	3.3 Multiple update
+4. Generate barcode file
+5. Business Adapter
+6. Work Station Inventory
+	6.1 Singler Create/Update
+	6.2 Multiple Create
+	6.3 Multiple update
+7. Group Permissions
+8. Administration
+	8.1 User
+	8.2 CostCenter
+
+
+
+Component - is a piece of UI
+	Angular each page is considered as a component
+	Component is main in Angular - Angular is nothing but a tree of a component.
+	Combining all these components together make an angular UI.
+
+
+In component we will have 3 files:
+Html - used to create elements for placing data and showing to the UI.
+Css - Add styles for that page.
+Ts - It countians all data related to the html to show or save into database. - class.
+Angular  - is a framework which works with both Angular and typescript.
+

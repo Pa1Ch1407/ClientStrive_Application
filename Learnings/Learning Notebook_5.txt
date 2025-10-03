@@ -1,0 +1,13 @@
+Creating new application
+Routing:
+routeroutlet
+routerlink
+routerlinkActive
+
+Services:
+API Service integration
+
+Nav Bar
+
+Loading
+

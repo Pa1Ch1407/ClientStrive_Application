@@ -1,0 +1,17 @@
+controlflow statements:
+
+ngif, ngfor, ngswitch - structural directives.
+
+without importing anything we can directly use for, if, switch statements in html.
+
+Razorehtml - c#html:
+
+for(int i = 0; i<obj.length(); i++)
+{
+	c.w(i);
+}
+
+@for(inti=0, i<obj.length(); i++)
+{
+
+}

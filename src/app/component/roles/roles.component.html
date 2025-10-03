@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table table=borderd">
+            <thead>
+                <tr>
+                    <th>
+                        Row Number
+                    </th>
+                    <th>
+                        Role Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roleList; let num = index">
+                    <td>{{num+1}}</td>
+                    <td>{{role.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-4">
+    <select>
+        <option *ngFor="let role of roleList"[value]="role.roleId">{{role.role}}</option>
+    </select>
+</div>
+<div class="col-4">
+    <button class="btn btn-warning mx-2" *ngFor="let item of roleList">{{item.role}}</button>
+</div>

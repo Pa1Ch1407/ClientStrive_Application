@@ -1,0 +1,43 @@
+Visual Studio - Environment is used to create web or desktop applications using C#, HTML, any front end code.
+
+		. Create a Database in SQL
+		. Create C# middle ware code for CRUD operations on application
+		. Get all necessary things to HTML and bind data to HTML elements to show in UI
+		. Create Front end code like javascript, Angular etc.., for making application and UI as user friendly.
+
+Tier Architecture: 3-Tier Architecture -GITAM is (1, 2, 3, N tier Architectures).
+
+testing is direct user will do some changes in application and any issue(from front end, c#, HTML) it is in the same project
+
+MSIL - Microsoft Intermediate Language - C#, F# - these languages convert to binary and get response in binary and change to the respected language.
+
+
+We cannot create or add libraries related to Angular CLI - 
+
+Asp.NET core this is used to create API's for web applications. - 1st step.
+Angular is having capability to call API's and get result into UI. - 2nd step.
+
+Create all the API's and call that Api's inside vs code with angular and get the results.
+
+Testing will be separated.
+ 
+First tester will test all API's if the values are coming or not. - Data
+Second tester will test UI perspective and here they check first UI changes and then check if data is properly reflecting in UI or not.
+
+Why Angular? 
+Applications whose body is only rendering on click and header, footer of the page will remain same. This concept is called Single Page Application(SPA).
+
+JavaScript is having feasibility for SPA but this is not component friendly.
+JS will have div elements for changing or rendering the page.
+Angular came up with a concept called component.
+=========================================================================================================================================================
+21-09-2025
+
+DataBinding
+
+In Angular we have different type of data binding
+interpolation - we bind data using {{}} braces inside Html tags. - One way data binding. Data comes from ts file to HTML file. 
+But will not transfer from HTML file to ts file.
+
+
+		
