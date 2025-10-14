@@ -1,0 +1,4 @@
+Basic structure of creating validations
+
+Most of the code is written in HTMl and less code is written in Ts file. - Template forms.
+Most of the code is written in Tsfile and less code is written in HTML file. - Reactive Forms.

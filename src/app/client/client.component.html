@@ -49,8 +49,22 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
-                        <label for="">Name</label>
-                        <input type="text" [(ngModel)]="clientObj.contactPersonName" class="form-control">
+                        <label for="">Name*</label>
+                        <input type="text" #personName="ngModel" minlength="5" required="" 
+                        [(ngModel)]="clientObj.contactPersonName" class="form-control">
+                        @if(personName.touched){
+                            <div class="text-danger">
+                            @if (personName?.errors?.['required']) {
+                                <span>This value is required.</span>
+                            }
+                        </div>
+                        <div class="text-danger">
+                            @if (personName?.errors?.['minlength']) {
+                                <span>This value should have atleast 5 characters.</span>
+                            }
+                        </div>
+                        }
+                        
                     </div>
                      <div class="col-6">
                         <label for="">CompanyName</label>

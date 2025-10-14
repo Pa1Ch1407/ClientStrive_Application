@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                Client List
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table=borderd">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Company name</th>
+                                    <th>Person name</th>
+                                    <th>Contact number</th>
+                                    <th>City</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Client
+            </div>
+            <div class="card-body">
+                <form [formGroup]="projectNameVar">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Project Name</label>
+                            <input type="text" formControlName="projectName" class="form-control">
+                            @if (projectNameVar.controls['projectName'].touched) {
+                            <div class="text-danger">
+                                @if (projectNameVar.controls['projectName'].errors?.['required']) {
+                                <span>This is required.</span>
+                                }
+                                @if (projectNameVar.controls['projectName'].errors?.['minlength']) {
+                                <span>This should have atleast 5 characters.</span>
+                                }
+                            </div>
+                            }
+
+                        </div>
+                        <div class="col-6">
+                            <label for="">startDate</label>
+                            <input type="date" formControlName="startDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">expectedEndDate</label>
+                            <input type="date" formControlName="expectedEndDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">completedDate</label>
+                            <input type="date" formControlName="completedDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">contactPerson</label>
+                            <input type="text" formControlName="contactPerson" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">ContactNo</label>
+                            <input type="text" formControlName="contactPersonContactNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">totalEmpWorking</label>
+                            <input type="text" formControlName="totalEmpWorking" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">projectDetails</label>
+                            <textarea formControlName="projectDetails" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">projectCost</label>
+                            <input type="text" formControlName="projectCost" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">PersonEmailId</label>
+                            <input type="text" formControlName="contactPersonEmailId" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">leadByEmpId</label>
+                            <select formControlName="leadByEmpId" class="form-control">
+                                <option value="">Select Value</option>
+                                @for (item of emplList; track $index) {
+                                <option [value]="item.empId">{{item.empName}}-{{item.empCode}}</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">clientId</label>
+                            <select formControlName="clientId" class="form-control">
+                                <option value="">Select Value</option>
+                                @for (item of clientList; track $index) {
+                                <option [value]="item.clientId">{{item.companyName}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row pt-2">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-secondary">Reset</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-success" [disabled]="projectNameVar.invalid" (click)="saveClientProject()">
+                            Save ClientProject
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
