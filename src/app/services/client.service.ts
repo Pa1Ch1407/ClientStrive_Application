@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { APIResponseResult } from '../model/interface/role';
 import { environment } from '../../environments/environment';
 import { Client } from '../model/class/Client';
+import { Constant } from '../Constants/constant';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ClientService {
   constructor(private http:HttpClient) { }
 
   getAllClients(): Observable<APIResponseResult>{
-    return this.http.get<APIResponseResult>(environment.API_URL+"GetAllClients")
+    return this.http.get<APIResponseResult>(environment.API_URL+Constant.API_GET_METHODS.GET_ALL_CLIENTS)
   }
 
    addOrupdate(obj:Client): Observable<APIResponseResult>{
@@ -25,11 +26,15 @@ export class ClientService {
   }
 
   getAllEmployees(): Observable<APIResponseResult>{
-    return this.http.get<APIResponseResult>(environment.API_URL+"GetAllEmployee")
+    return this.http.get<APIResponseResult>(environment.API_URL+Constant.API_GET_METHODS.GET_ALL_EMP)
   }
 
   addUpdateClientProject(obj: any): Observable<APIResponseResult>{
     return this.http.post<APIResponseResult>(environment.API_URL+"AddUpdateClientProject", obj)
+  }
+
+  gettemporaryUsers(){
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
 
 }

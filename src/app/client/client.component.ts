@@ -1,13 +1,16 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ClientService } from '../services/client.service';
 import { Client } from '../model/class/Client';
 import { APIResponseResult } from '../model/interface/role';
 import { FormsModule } from '@angular/forms';
+import { AsyncPipe, DatePipe, JsonPipe, UpperCasePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Constant } from '../Constants/constant';
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, UpperCasePipe, DatePipe, JsonPipe, AsyncPipe],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -16,15 +19,23 @@ export class ClientComponent implements OnInit {
   clientList: Client[] = [];
   clientObj: Client = new Client();
   clientService = inject(ClientService);
+  currentDate: Date = new Date();
+  userJsonData$: Observable<any> = new Observable<any>;
+  message: string= Constant.VALIDAIONMESSAGE.WELCOME_MESSAGE;
+  applicationInfo = signal(false);
 
   ngOnInit(): void {
     this.loadClient();
+    this.userJsonData$ = this.clientService.gettemporaryUsers();
   }
 
   //Get Clients
   loadClient() {
     this.clientService.getAllClients().subscribe((res: APIResponseResult) => {
       this.clientList = res.data;
+      if(this.clientList.length>=1){
+        this.applicationInfo.set(true);
+      }
     })
   }
 
