@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { AsyncPipe, DatePipe, JsonPipe, UpperCasePipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Constant } from '../Constants/constant';
+import { MyButtonComponent } from "../resulableComponent/my-button/my-button.component";
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule, UpperCasePipe, DatePipe, JsonPipe, AsyncPipe],
+  imports: [FormsModule, UpperCasePipe, DatePipe, JsonPipe, AsyncPipe, MyButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -40,7 +41,8 @@ export class ClientComponent implements OnInit {
   }
 
   //Save Clients
-  onSaveClient() {
+  onSaveClient(date: Date) {
+    debugger;
     this.clientService.addOrupdate(this.clientObj).subscribe((res: APIResponseResult) => {
       if (res.result) {
         alert("Record Created successfully.");

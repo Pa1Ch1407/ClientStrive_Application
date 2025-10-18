@@ -120,9 +120,10 @@
                         <button class="btn btn-secondary" (click)="onReset()">Reset</button>
                     </div>
                     <div class="col-6 text-center">
-                        <button class="btn btn-success" (click)="onSaveClient()">
+                        <app-my-button [btnClass]="'btn btn-success'" (BtnClicked)="onSaveClient($event)" [btnText]="clientObj.clientId !=0 ?'Update Client':'Save Client'"></app-my-button>
+                        <!-- <button class="btn btn-success" (click)="onSaveClient()">
                             {{clientObj.clientId !=0 ?'Update Client':'Save Client'}}
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>
