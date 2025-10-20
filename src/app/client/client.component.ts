@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, OnChanges, SimpleChanges } from '@angular/core';
 import { ClientService } from '../services/client.service';
 import { Client } from '../model/class/Client';
 import { APIResponseResult } from '../model/interface/role';
@@ -15,7 +15,7 @@ import { MyButtonComponent } from "../resulableComponent/my-button/my-button.com
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
-export class ClientComponent implements OnInit {
+export class ClientComponent implements OnInit, OnChanges {
 
   clientList: Client[] = [];
   clientObj: Client = new Client();
@@ -25,10 +25,16 @@ export class ClientComponent implements OnInit {
   message: string= Constant.VALIDAIONMESSAGE.WELCOME_MESSAGE;
   applicationInfo = signal(false);
 
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
+
   ngOnInit(): void {
     this.loadClient();
     this.userJsonData$ = this.clientService.gettemporaryUsers();
   }
+
+
 
   //Get Clients
   loadClient() {
